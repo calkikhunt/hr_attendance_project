@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="hr_attendance_project_description_view_form" model="ir.ui.view">
+        <field name="name">hr.attendance.project.description.view.form</field>
+        <field name="model">hr.attendance.project.description</field>
+        <field name="arch" type="xml">
+            <form string="Project Information">
+                <group>
+                    <field name="attendance_state" invisible="1" />
+                    <field name="latitude" invisible="1" />
+                    <field name="longitude" invisible="1" />
+                    <field name="project_id" readonly="attendance_state == 'checked_in'" />
+                    <field name="task_id" readonly="attendance_state == 'checked_in'" />
+                    <field name="check_in_description" invisible="attendance_state == 'checked_in'"
+                        required="attendance_state == 'checked_out'" />
+                    <field name="check_out_description"
+                        invisible="attendance_state == 'checked_out'"
+                        required="attendance_state == 'checked_in'" />
+                </group>
+                <footer>
+                    <button name="action_checkin_checkout" type="object"
+                        class="btn-primary"
+                        data-hotkey="q" invisible="attendance_state == 'checked_in'">
+                        <span>Check in</span>
+                        <i t-attf-class="fa fa-sign-in ms-1" />
+                    </button>
+                    <button name="action_checkin_checkout" type="object"
+                        class="btn-primary"
+                        data-hotkey="q"
+                        invisible="attendance_state == 'checked_out'">
+                        <span>Check out</span>
+                        <i t-attf-class="fa fa-sign-out ms-1" />
+                    </button>
+                    <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="x" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_attendance_project_description_action_view" model="ir.actions.act_window">
+        <field name="name">Project Information</field>
+        <field name="res_model">hr.attendance.project.description</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

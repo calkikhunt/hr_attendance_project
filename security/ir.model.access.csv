@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_attendance_project_description,access.hr.attendance.project.description,model_hr_attendance_project_description,,1,1,1,1

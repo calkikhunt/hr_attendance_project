@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo noupdate="1">
+    <record id="attendance_root3" model="hr.attendance">
+        <field
+            eval="(datetime.now()+relativedelta(days=-2)).strftime('%Y-%m-%d 13:02:58')"
+            name="check_in" />
+        <field
+            eval="(datetime.now()+relativedelta(days=-2)).strftime('%Y-%m-%d 18:09:22')"
+            name="check_out" />
+        <field name="employee_id" ref="hr.employee_admin" />
+        <field name="project_id" ref="project.project_project_1" />
+        <field name="task_id" ref="project.project_1_task_5" />
+        <field name="check_in_description">Check in</field>
+        <field name="check_out_description">Check out</field>
+    </record>
+
+    <record id="attendance11" model="hr.attendance">
+        <field eval="(datetime.now()+relativedelta(months=-2)).strftime('%Y-%m-01 08:21')"
+            name="check_in" />
+        <field eval="(datetime.now()+relativedelta(months=-2)).strftime('%Y-%m-01 15:51')"
+            name="check_out" />
+        <field name="employee_id" ref="hr.employee_qdp" />
+        <field name="project_id" ref="project.project_project_1" />
+        <field name="task_id" ref="project.project_1_task_5" />
+        <field name="check_in_description">Check in</field>
+        <field name="check_out_description">Check out</field>
+    </record>
+</odoo>
